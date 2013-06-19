@@ -3,7 +3,7 @@ package com.bruno.persist;
 import com.bruno.pojo.User;
 import com.google.appengine.api.datastore.*;
 
-import static com.google.appengine.api.datastore.FetchOptions.Builder.withLimit;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +16,7 @@ public class UserPersist {
     public static boolean putUser(User user, String company){
 
         User user1 = getUser(user.getUsername());
-        if(user1==null){
+        if(user1.getUsername()==null){
             DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
             datastore.put(makeEntity(user, company));
             return true;
@@ -50,7 +50,6 @@ public class UserPersist {
         String uname = (String) entity.getProperty("username");
         String password = (String) entity.getProperty("password");
         String userrole = (String) entity.getProperty("userrole");
-        User user = new User(uname,password,userrole);
-        return user;
+        return new User(uname,password,userrole);
     }
 }

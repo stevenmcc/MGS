@@ -46,9 +46,9 @@
                     <div class="nav-collapse collapse">
                         <ul id="navi" class="nav">
                             <li class="active"><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><a href="#sign_up">Sign up</a></li>
+                            <li><a href="#company">Company</a></li>
+                            <li><a href="#contacts">Contacts</a></li>
+                            <li><a href="#addresses">Addresses</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                     <!-- Main hero unit for a primary marketing message or call to action -->
