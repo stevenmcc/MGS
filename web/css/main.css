@@ -1,0 +1,46 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.sub-title{
+    width: 600px;
+}
+.sub-left {
+    float: left;
+    width: 300px;
+}
+.sub-right {
+    float: right;
+    width: 300px;
+}
+.sub-left-top {
+    float: left;
+    width: 300px;
+}
+.sub-right-top {
+    float: right;
+    width: 500px;
+}
+#content-container{
+
+}
+.clear-both {
+    clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
