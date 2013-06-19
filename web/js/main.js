@@ -11,7 +11,7 @@ $("#login").submit(function(event) {
     // callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
         // log a message to the console
-        var url = "../jsp/loggedindex.jsp";
+        var url = "../lg/home.jsp";
         window.location = url;
     });
 

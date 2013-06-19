@@ -17,7 +17,7 @@ $(document).ready(function(){
     });
     // callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
-        url = "fail.jsp"
+        url = "../index.jsp"
         window.location = url;
     });
 });
