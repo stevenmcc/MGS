@@ -20,4 +20,5 @@ $(document).ready(function(){
         url = "../index.jsp"
         window.location = url;
     });
+
 });

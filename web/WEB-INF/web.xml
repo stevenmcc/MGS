@@ -19,6 +19,14 @@
         <servlet-name>LogCheckServlet</servlet-name>
         <servlet-class>com.bruno.servlets.LogCheckServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactsServlet</servlet-name>
+        <servlet-class>com.bruno.servlets.ContactsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContactsServlet</servlet-name>
+        <url-pattern>/con</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogCheckServlet</servlet-name>
         <url-pattern>/lc</url-pattern>

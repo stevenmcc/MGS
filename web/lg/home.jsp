@@ -23,8 +23,8 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="../css/main.css" media="screen"/>
         <script type="text/JavaScript" src="../js/header.js"></script>
-        <script type="text/JavaScript" src="../js/main.js"></script>
         <script type="text/JavaScript" src="../js/logcheck.js"></script>
+        <script type="text/JavaScript" src="../js/lg.js"></script>
 
     </head>
     <body>
@@ -61,8 +61,10 @@
         <div class="container">
 
             <div id="content-container"  class="hero-unit">
-
-
+                <div id="contacts">Contacts</div>
+                <div id="address">Addresses</div>
+                <div id="user">Users</div>
+                <div id="company">Companys</div>
             </div>
 
             <footer>
