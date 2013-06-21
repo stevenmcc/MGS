@@ -13,28 +13,32 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class AddressPersist {
-    public static void putAddress(Address address, String company){
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        datastore.put(makeEntity(address, company));
-
-        String s = "";
-    }
-    public static Address getAddress(String firstname){
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        Query.Filter addressFilter = new Query.FilterPredicate("firstname",Query.FilterOperator.EQUAL,firstname);
-        Query q = new Query("Address").setFilter(addressFilter).setFilter(addressFilter);
-        PreparedQuery pq = datastore.prepare(q);
-        
-        Address address = null;
-        for (Entity result : pq.asIterable()) {
-            address = makeAddress(result);
+    public static Key putAddress(Address address, Key company){
+        Address add = getAddress(address.getLine1());
+        if(add==null){
+            DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+            return datastore.put(makeEntity(address, company));
         }
-        return address;
+        else{
+            return null;
+        }
+
     }
-    public static ArrayList<Address> getAllCompanyAddresss(String companyname){
+    public static Address getAddress(String addressname){
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        Query.Filter addressFilter = new Query.FilterPredicate("company",Query.FilterOperator.EQUAL,companyname);
+        Query.Filter addressFilter = new Query.FilterPredicate("addressname",Query.FilterOperator.EQUAL,addressname);
         Query q = new Query("Address").setFilter(addressFilter);
+        PreparedQuery pq = datastore.prepare(q);
+
+        for (Entity result : pq.asIterable()) {
+            return makeAddress(result);
+        }
+        return null;
+                
+    }
+    public static ArrayList<Address> getAllCompanyAddresss(Key companyname){
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Query q = new Query("Address").setAncestor(companyname).addSort("city", Query.SortDirection.DESCENDING);;
         PreparedQuery pq = datastore.prepare(q);
         ArrayList<Address> addresses =  new ArrayList<Address>();
         Address address = null;
@@ -45,21 +49,22 @@ public class AddressPersist {
         return addresses;
     }
 
-    private static Entity makeEntity(Address address, String company){
-        Entity inaddress = new Entity("Address");
+    private static Entity makeEntity(Address address, Key company){
+        Entity inaddress = new Entity("Address", company);
+        inaddress.setProperty("addressname", address.getName());
         inaddress.setProperty("line1", address.getLine1());
         inaddress.setProperty("line2", address.getLine2());
         inaddress.setProperty("city", address.getCity());
         inaddress.setProperty("postcode", address.getPostcode());
-        inaddress.setProperty("company", company);
         return inaddress;
     }
     private static Address makeAddress(Entity entity){
-        String fname = (String) entity.getProperty("firstname");
-        String lname = (String) entity.getProperty("lastname");
-        String phone = (String) entity.getProperty("phone");
-        String email = (String) entity.getProperty("email");
-        Address address = new Address(fname,lname,phone,email);
+        String fname = (String) entity.getProperty("line1");
+        String lname = (String) entity.getProperty("line2");
+        String phone = (String) entity.getProperty("city");
+        String email = (String) entity.getProperty("postcode");
+        String addressname = (String) entity.getProperty("addressname");
+        Address address = new Address(fname,lname,phone,email,addressname);
         return address;
     }
 }

@@ -23,7 +23,7 @@
                     Username:
                 </div>
                 <div class="sub-right">
-                    <input type="text" name="username" id="username"/>
+                    <input type="text" name="username" id="username" placeholder="Username"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -32,7 +32,7 @@
                     Password:
                 </div>
                 <div class="sub-right">
-                    <input type="password" name="password" id="password"/>
+                    <input type="password" name="password" id="password"  placeholder="Password"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -41,7 +41,7 @@
                     Confirm Password:
                 </div>
                 <div class="sub-right">
-                    <input type="password" name="cpassword" id="c_password"/>
+                    <input type="password" name="cpassword" id="c_password"  placeholder="Confirm Password"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -50,7 +50,7 @@
                     First Name;
                 </div>
                 <div class="sub-right">
-                    <input type="text" name="firstname" id="firstname"/>
+                    <input type="text" name="firstname" id="firstname" placeholder="Name"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -59,7 +59,7 @@
                     Last Name:
                 </div>
                 <div class="sub-right">
-                    <input type="text" name="lastname" id="lastname"/>
+                    <input type="text" name="lastname" id="lastname"  placeholder="Surname"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -68,7 +68,7 @@
                     Email
                 </div>
                 <div class="sub-right">
-                    <input type="text" name="email" id="email"/>
+                    <input type="text" name="email" id="email"  placeholder="Email"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -77,7 +77,7 @@
                     Mobile
                 </div>
                 <div class="sub-right">
-                    <input type="text" name="mphone" id="mphone"/>
+                    <input type="text" name="mphone" id="mphone"  placeholder="Mobile Phone"/>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -140,6 +140,15 @@
         <div class="sub-title-top">
             <div class="sub-left-top">
                 <h2>Address Details:</h2>
+                <div class="sub-title">
+                    <div class="sub-left">
+                        Address Title:
+                    </div>
+                    <div class="sub-right">
+                        <input type="text" name="addressname" id="addressname"/>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
                 <div class="sub-title">
                     <div class="sub-left">
                         Address Line 1:

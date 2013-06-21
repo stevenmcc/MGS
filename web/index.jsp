@@ -10,6 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <jsp:include page="jsp/header.jsp" />
+        <script type="text/JavaScript" src="../js/user.js"></script>
 
     </head>
     <body>
@@ -27,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">MG Safety Services</a>
+                    <a class="brand" href="#brand">MG Safety Services</a>
                     <div class="nav-collapse collapse">
                         <ul id="navi" class="nav">
                             <li class="active"><a href="#home">Home</a></li>
@@ -47,13 +48,13 @@
             </div>
         </div>
         <div class="container">
-        <div id="failure" class="hero-unit">
-            <h2>Error</h2>
-            <p>The below error has occured:</p>
-            <p><div id="errordetials"></div></p>
-            <p><a href="#failok" class="btn btn-primary btn-large">OK</a></p>
+        <div id="failure" class="alert alert-error">
+            <strong>Error:</strong><button type="button" id="errorclose" class="close">&times;</button>
+            <div id="errordetails"></div>
+
         </div>
-        </div>
+        <div class="container">
+
 
 
 
@@ -73,9 +74,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

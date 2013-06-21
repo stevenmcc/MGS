@@ -11,9 +11,15 @@ import com.google.appengine.api.datastore.*;
  * To change this template use File | Settings | File Templates.
  */
 public class CompanyPersist {
-    public static void putCompany(Company company){
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        datastore.put(makeEntity(company));
+    public static Key putCompany(Company company){
+        Company c = getCompany(company.getName());
+        if(c==null){
+            DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+            return datastore.put(makeEntity(company));
+        }else{
+            return null;
+        }
+
     }
     public static Company getCompany(String companyname){
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -29,7 +35,7 @@ public class CompanyPersist {
     }
 
     private static Entity makeEntity(Company company){
-        Entity incompany = new Entity("Company");
+        Entity incompany = new Entity("Company", company.getName());
         incompany.setProperty("companyname", company.getName());
         incompany.setProperty("companyphone", company.getPhone());
         return incompany;

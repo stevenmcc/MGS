@@ -14,17 +14,20 @@ public class Address implements Serializable {
     String line2;
     String city;
     String postcode;
+    String name;
 
     public Address() {
 
     }
 
-    public Address(String line1, String line2, String city, String postcode) {
+    public Address(String line1, String line2, String city, String postcode, String name) {
         this.line1 = line1;
         this.line2 = line2;
         this.city = city;
         this.postcode = postcode;
+        this.name = name;
     }
+
 
     public String getLine1() {
         return line1;
@@ -56,6 +59,14 @@ public class Address implements Serializable {
 
     public void setPostcode(String postcode) {
         this.postcode = postcode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

@@ -5,13 +5,13 @@
  * Time: 00:24
  * To change this template use File | Settings | File Templates.
  */
+
     $('a[href="#restart"]').click(function(){
         $('#content-container').load('jsp/user.jsp').slideDown("slow");
     });
 
     $("#page_2").hide();
     $("#page_3").hide();
-
     $("#success").hide();
 
     $("#next").click(function(){
@@ -35,20 +35,39 @@
     });
     $("#registration").submit(function(event) {
         event.preventDefault();
-        var isFormValid = true;
+        var isFormValid=true;
+        var isEmailValid;
+        var passMatch = false;
+
+        // Make sure all inputs are entered
         $("#registration input:text").each(function(){ // Note the :text
             if ($.trim($(this).val()).length == 0){
                 isFormValid = false;
             }
         });
+        //validate the users email
+        var email = $("#email").val();
+        var regex = /^([a-zA-Z0-9_\.\-\+])+@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        isEmailValid=regex.test(email);
+
+        //validate the passwords match
+        var p1 = $("#password").val();
+        var p2 = $("#c_password").val();
+        if(p1==p2){
+            passMatch=true;
+        }
+
         if (!isFormValid){
             var errorThrown = "Please fill in all the required fields.";
-            // log the error to the console
-            $("#failure").slideDown("slow");
-            $('#content-container').slideUp("slow");
-            $("#errordetials").html("");
-            $("#errordetials").append(errorThrown);
-
+            throwError(errorThrown);
+        }
+        else if (!passMatch){
+            var errorThrown = "Passwords do not match.";
+             throwError(errorThrown);
+        }
+        else if (!isEmailValid){
+            var errorThrown = "Email is invalid.";
+            throwError(errorThrown);
         }
         else{
             var serializedData = $(this).serialize();
@@ -68,14 +87,11 @@
 
             // callback handler that will be called on failure
             request.fail(function (jqXHR, textStatus, errorThrown){
-                // log the error to the console
-                $("#failure").slideDown("slow");
-                $('#content-container').slideUp("slow");
-                $("#errordetials").html("");
-                $("#errordetials").append(errorThrown);
+                throwError(errorThrown);
             });
         }
     });
+
 
 
 
